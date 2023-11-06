@@ -10,13 +10,13 @@ import java.time.Duration;
 
 public class MainPage {
     public static final String URL = "https://qa-scooter.praktikum-services.ru";
-    private WebDriver driver;
+    private final WebDriver driver;
 
     //локатор кнопки "Куки"
-    private By cookieButton = By.xpath(".//button[@class = 'App_CookieButton__3cvqF']");
+    private final By cookieButton = By.xpath(".//button[@class = 'App_CookieButton__3cvqF']");
 
     //локатор до блока "Вопросы о важном"
-    private By blockQuestions = By.xpath(".//div[@class = 'Home_SubHeader__zwi_E' and text() = 'Вопросы о важном']");
+    private final By blockQuestions = By.xpath(".//div[@class = 'Home_SubHeader__zwi_E' and text() = 'Вопросы о важном']");
 
     private final By orderUp = By.xpath(".//button[@class='Button_Button__ra12g']");
     //Кнопка заказать в центре
