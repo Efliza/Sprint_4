@@ -14,8 +14,8 @@ import java.time.Duration;
 public class CheckOpensAccordionOneTest {
 
     private WebDriver driver;
-    private String questionText;
-    private String expectedAnswer;
+    private final String questionText;
+    private final String expectedAnswer;
 
 
     public CheckOpensAccordionOneTest(String questionText, String expectedAnswer){
