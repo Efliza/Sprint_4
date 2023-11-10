@@ -13,6 +13,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.junit.Assert.assertTrue;
+
 @RunWith(Parameterized.class)
 public class CheckMakeInOrderTest {
 
@@ -69,6 +71,8 @@ public class CheckMakeInOrderTest {
         orderPage.fillOutSecondPart(date, rentPeriod, color, comment);
         orderPage.clickOrderButton();
         orderPage.clickConfirmButton();
+        assertTrue("Не показано сообщение об успешном оформлении заказа",
+                mainPage.successfulOrderPopup().checkSuccesfulOrderPopup());
     }
 
     @Test
@@ -80,6 +84,8 @@ public class CheckMakeInOrderTest {
         orderPage.fillOutSecondPart(date, rentPeriod, color, comment);
         orderPage.clickOrderButton();
         orderPage.clickConfirmButton();
+        assertTrue("Не показано сообщение об успешном оформлении заказа",
+                mainPage.successfulOrderPopup().checkSuccesfulOrderPopup());
     }
 
     @After

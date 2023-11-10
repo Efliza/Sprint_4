@@ -11,6 +11,7 @@ import java.time.Duration;
 public class MainPage {
     public static final String URL = "https://qa-scooter.praktikum-services.ru";
     private final WebDriver driver;
+    private final SuccessfulOrderPopup successfulOrderPopup;
 
     //локатор кнопки "Куки"
     private final By cookieButton = By.xpath(".//button[@class = 'App_CookieButton__3cvqF']");
@@ -28,6 +29,7 @@ public class MainPage {
     //конструктор класса
     public MainPage(WebDriver driver) {
         this.driver = driver;
+        successfulOrderPopup = new SuccessfulOrderPopup(driver);
     }
 
     //метод открывает сайт
@@ -84,5 +86,9 @@ public class MainPage {
         orderDownElement.click();
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(formOrder));
+    }
+
+    public SuccessfulOrderPopup successfulOrderPopup() {
+        return successfulOrderPopup;
     }
 }

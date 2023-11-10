@@ -5,7 +5,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class OrderPage {
     private final WebDriver driver;
@@ -34,7 +33,7 @@ public class OrderPage {
     //подтвердить заказ
     private final By orderConfirmButton = By.xpath(".//button[text()='Да']");
     //поп-ап подтверждения заказа
-    private final By confirmedOrder = By.xpath(".//div[text()='Заказ оформлен']");
+
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
@@ -97,12 +96,5 @@ public class OrderPage {
     public void clickConfirmButton() {
         //нажимаем на кнопку подтверждения заказа
         driver.findElement(orderConfirmButton).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(confirmedOrder));
-        } catch (TimeoutException e) {
-            // Если элемент не появился, выводим сообщение об ошибке
-            fail("Сообщение о подтверждении заказа не появилось");
-        }
     }
 }
