@@ -10,7 +10,7 @@ public class SuccessfulOrderPopup {
     public SuccessfulOrderPopup (WebDriver driver) {
         this.driver = driver;
     }
-    //Показ попапа успешно оформленного заказа
+    //Показ поп апа успешно оформленного заказа
     public boolean checkSuccesfulOrderPopup() {
         return driver.findElements(confirmedOrder).size() > 0;
     }
